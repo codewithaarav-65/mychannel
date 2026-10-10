@@ -1,0 +1,549 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080808">
+
+<title>Aarav Gaming FF | Official Channel</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --red: #ff2020;
+  --dark-red: #a80000;
+  --black: #080808;
+  --white: #ffffff;
+  --gray: #aaaaaa;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: 'Poppins', sans-serif;
+  color: var(--white);
+  background:
+    radial-gradient(ellipse at 50% 40%, #300707 0%, transparent 50%),
+    #080808;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Background effects */
+
+.background-glow {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 10% 20%, #ff000014, transparent 30%),
+    radial-gradient(circle at 90% 80%, #ff000020, transparent 30%);
+}
+
+.particles {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.particle {
+  position: absolute;
+  bottom: -20px;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #ff3030;
+  box-shadow: 0 0 10px #ff0000;
+  animation: rise linear infinite;
+}
+
+/* Navigation */
+
+.navbar {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 22px 8%;
+  background: #080808e8;
+  border-bottom: 1px solid #ff202035;
+  box-shadow: 0 5px 30px #ff000008;
+}
+
+.brand {
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(14px, 2.4vw, 21px);
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.brand span {
+  color: var(--red);
+  text-shadow: 0 0 15px #ff000080;
+}
+
+.nav-button {
+  border: 1px solid var(--red);
+  padding: 10px 17px;
+  border-radius: 5px;
+  color: var(--white);
+  font-size: 12px;
+  font-weight: 700;
+  transition: .3s;
+}
+
+.nav-button:hover {
+  background: var(--red);
+  box-shadow: 0 0 20px #ff202070;
+}
+
+/* Main hero */
+
+.hero {
+  min-height: 83vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 65px 20px 80px;
+  text-align: center;
+}
+
+.content {
+  width: 100%;
+  max-width: 850px;
+  animation: fadeIn 1s ease both;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 17px;
+  margin-bottom: 32px;
+  border: 1px solid #ff202050;
+  border-radius: 4px;
+  background: #ff00000b;
+  color: #ffb4b4;
+  font-size: 11px;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
+.badge-dot {
+  width: 8px;
+  height: 8px;
+  background: #ff2525;
+  border-radius: 50%;
+  box-shadow: 0 0 12px #ff0000;
+}
+
+/* Channel logo */
+
+.logo-ring {
+  position: relative;
+  width: 185px;
+  height: 185px;
+  padding: 5px;
+  margin: 0 auto 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff0000, #650000, #ff4040);
+  box-shadow:
+    0 0 25px #ff000050,
+    0 0 70px #ff000020;
+  animation: logoFloat 4s ease-in-out infinite;
+}
+
+.logo-ring::before {
+  content: "";
+  position: absolute;
+  inset: -9px;
+  border: 1px solid #ff202055;
+  border-radius: 50%;
+  animation: pulse 3s ease-out infinite;
+}
+
+.logo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 4px solid #080808;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #111;
+}
+
+/* Heading */
+
+h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 900;
+  font-size: clamp(34px, 7.5vw, 70px);
+  line-height: 1.2;
+  letter-spacing: -2px;
+  margin-bottom: 20px;
+  text-shadow: 0 5px 30px #ff000018;
+}
+
+h1 .highlight {
+  color: var(--red);
+  text-shadow: 0 0 25px #ff000055;
+}
+
+.subtitle {
+  color: #c4c4c4;
+  font-size: 16px;
+  line-height: 1.9;
+  max-width: 610px;
+  margin: 0 auto 30px;
+}
+
+/* Gaming tags */
+
+.tags {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 36px;
+}
+
+.tag {
+  padding: 10px 14px;
+  background: #ffffff06;
+  border: 1px solid #ffffff16;
+  border-radius: 4px;
+  color: #e4e4e4;
+  font-size: 12px;
+  transition: .3s;
+}
+
+.tag:hover {
+  border-color: var(--red);
+  color: #ff6060;
+  transform: translateY(-3px);
+}
+
+/* Buttons */
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 11px;
+  min-width: 200px;
+  padding: 16px 23px;
+  border-radius: 5px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.subscribe {
+  background: var(--red);
+  border: 1px solid var(--red);
+  color: white;
+  box-shadow: 0 5px 25px #ff000025;
+}
+
+.subscribe:hover {
+  background: #d90000;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 35px #ff000065;
+}
+
+.share {
+  color: white;
+  background: #ffffff05;
+  border: 1px solid #ff202080;
+}
+
+.share:hover {
+  background: #ff202015;
+  border-color: var(--red);
+  transform: translateY(-4px);
+}
+
+.btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Bottom strip */
+
+.bottom {
+  padding: 25px 15px;
+  border-top: 1px solid #ff202020;
+  background: #050505;
+  text-align: center;
+  color: #888;
+  font-size: 12px;
+}
+
+.bottom strong {
+  color: var(--red);
+}
+
+/* Animations */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes logoFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-9px); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(0.96); opacity: .8; }
+  100% { transform: scale(1.18); opacity: 0; }
+}
+
+@keyframes rise {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  15% { opacity: .8; }
+  100% {
+    transform: translateY(-110vh);
+    opacity: 0;
+  }
+}
+
+/* Mobile responsive */
+
+@media (max-width: 500px) {
+  .navbar {
+    padding: 18px 5%;
+  }
+
+  .nav-button {
+    padding: 9px 11px;
+    font-size: 10px;
+  }
+
+  .logo-ring {
+    width: 150px;
+    height: 150px;
+  }
+
+  .hero {
+    padding: 55px 20px 65px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .badge {
+    font-size: 9px;
+    letter-spacing: 1px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="background-glow"></div>
+<div class="particles" id="particles"></div>
+
+<!-- Navigation -->
+<nav class="navbar">
+  <a href="#home" class="brand">
+    AARAV <span>GAMING FF</span>
+  </a>
+
+  <a
+    href="https://www.youtube.com/@Aarav_Gaming-45"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="nav-button">
+    MY CHANNEL ↗
+  </a>
+</nav>
+
+<!-- Main advertisement -->
+<main class="hero" id="home">
+  <section class="content">
+
+    <div class="badge">
+      <span class="badge-dot"></span>
+      WELCOME TO MY GAMING WORLD
+    </div>
+
+    <div class="logo-ring">
+      <img
+        class="logo"
+        src="https://yt3.googleusercontent.com/_qYQTCVTCoYv3s9KMx9AHH1vLBD7-Iqe0UXgzOfNyZrVeIr4sSiXr_FRozwpeX51aW5jPlOjug=s160-c-k-c0x00ffffff-no-rj"
+        alt="Aarav Gaming FF Logo"
+      >
+    </div>
+
+    <h1>
+      AARAV<br>
+      <span class="highlight">GAMING FF</span>
+    </h1>
+
+    <p class="subtitle">
+      🎮 Welcome to Aarav Gaming FF! Explore epic Minecraft builds,
+      amazing gaming tricks, creative experiments, and entertaining
+      content. Join the squad and become part of the gaming adventure!
+    </p>
+
+    <div class="tags">
+      <span class="tag">🎮 GAMING</span>
+      <span class="tag">⛏️ MINECRAFT</span>
+      <span class="tag">🔥 GAMING HACKS</span>
+      <span class="tag">⚡ TECH & FUN</span>
+    </div>
+
+    <div class="buttons">
+
+      <a
+        class="btn subscribe"
+        href="https://www.youtube.com/@Aarav_Gaming-45?sub_confirmation=1"
+        target="_blank"
+        rel="noopener noreferrer">
+
+        <svg viewBox="0 0 24 24" fill="currentColor"
+             aria-hidden="true">
+          <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"/>
+        </svg>
+
+        SUBSCRIBE NOW
+      </a>
+
+      <button class="btn share" id="shareBtn" type="button">
+        <svg viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2"
+             aria-hidden="true">
+          <circle cx="18" cy="5" r="3"/>
+          <circle cx="6" cy="12" r="3"/>
+          <circle cx="18" cy="19" r="3"/>
+          <path d="m8.7 10.5 6.6-4M8.7 13.5l6.6 4"/>
+        </svg>
+        SHARE CHANNEL
+      </button>
+
+    </div>
+  </section>
+</main>
+
+<footer class="bottom">
+  Made with <strong>♥</strong> by <strong>Aarav Gaming FF</strong>
+  | Thanks for visiting!
+</footer>
+
+<script>
+  // Red floating particles
+  const particleArea = document.getElementById("particles");
+
+  for (let i = 0; i < 45; i++) {
+    const particle = document.createElement("span");
+    particle.className = "particle";
+
+    particle.style.left = Math.random() * 100 + "%";
+    particle.style.animationDuration =
+      (7 + Math.random() * 14) + "s";
+    particle.style.animationDelay =
+      (-Math.random() * 20) + "s";
+    particle.style.opacity =
+      (0.2 + Math.random() * 0.7).toString();
+
+    particleArea.appendChild(particle);
+  }
+
+  // Share channel
+  const channelUrl =
+    "https://www.youtube.com/@Aarav_Gaming-45";
+
+  const shareBtn = document.getElementById("shareBtn");
+
+  shareBtn.addEventListener("click", async () => {
+    try {
+      if (navigator.share) {
+        await navigator.share({
+          title: "Aarav Gaming FF",
+          text: "Check out Aarav Gaming FF on YouTube!",
+          url: channelUrl
+        });
+      } else if (
+        navigator.clipboard &&
+        window.isSecureContext
+      ) {
+        await navigator.clipboard.writeText(channelUrl);
+
+        shareBtn.innerHTML = "✓ LINK COPIED!";
+
+        setTimeout(() => {
+          shareBtn.innerHTML = "↗ SHARE CHANNEL";
+        }, 2000);
+      } else {
+        window.prompt(
+          "Copy the channel link:",
+          channelUrl
+        );
+      }
+    } catch (error) {
+      if (error.name !== "AbortError") {
+        window.prompt(
+          "Copy the channel link:",
+          channelUrl
+        );
+      }
+    }
+  });
+</script>
+
+</body>
+</html>
